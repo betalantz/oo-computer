@@ -2,6 +2,26 @@ require 'pry'
 
 class Computer
 
+    def self.all # not in deliverables, but useful for testing
+        @@all
+    end
+
+    def self.brands
+        @@all.map(&:brand).uniq # using proc notation as shorthand to replace block
+    end
+
+    def self.models
+        @@all.map(&:model).uniq
+    end
+
+    def self.largest_memory
+        # @@all.sort_by(&:memory_GB).last
+        # @@all.max_by {|computer| computer.memory_GB }
+        @@all.max_by(&:memory_GB)
+    end
+
+    @@all = []
+
     attr_reader :brand, :model, :storage_free
     attr_accessor :memory_GB
 
@@ -10,6 +30,7 @@ class Computer
         @model = model
         @memory_GB = 8
         @storage_free = 1000
+        @@all << self
     end
 
     def set_storage_free=(value)
@@ -55,6 +76,8 @@ acer = Computer.new("Acer", "THX1138")
 acer.upgrade_memory({model: "samsung", size: 8})
 puts acer.disk_full?(1100)
 puts acer.spec
+mbp = Computer.new("Apple", "Macbook Pro")
+mair = Computer.new("Apple", "Macbook Air")
 
 binding.pry
 0
