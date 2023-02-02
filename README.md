@@ -76,7 +76,7 @@ Create a `Computer` class with the following behavior:
 
 - [] `Computer#storage_free=(value)`: sets the value of the computer's free storage. The maximum value allowed is 1000, and the minimum value allowed is 0.
 
-### Additional Instance Methods
+### Additional Methods
 
 - [] `Computer#upgrade_memory(RAM)`: takes a hash (`{model: String, size: Integer}`) and adds the size of the RAM to the computer's memory
 
@@ -87,3 +87,9 @@ Create a `Computer` class with the following behavior:
 - []`Computer#delete_file(file)`: given a file hash (`{name: String, size: Number}`), make the appropriate adjustment to the free storage size and return a string confirming that the file has been deleted which includes the file's name.
 
 - []`Computer#specs`: returns a string which includes both the current memory and free storage, both in gigabytes.
+
+- [] `Computer.brands`: returns an array of unique strings of all of the computer brands that have been instantiated (no duplicates).
+
+- [] `Computer.models`: returns an array of unique strings of all of the computer models that have been instantiated (no duplicates).
+
+- [] `Computer.largest_memory`: returns the instance of the computer with the largest memory.
